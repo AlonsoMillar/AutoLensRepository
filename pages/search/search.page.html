@@ -1,0 +1,55 @@
+<ion-content [fullscreen]="true" class="search-bg">
+  <div class="search-container">
+    
+    <div class="header-section">
+      <h2 class="page-title">Historial</h2>
+      <p class="page-subtitle">Tus lecturas anteriores</p>
+    </div>
+
+    <ion-searchbar 
+      class="custom-searchbar" 
+      placeholder="Buscar patente (Ej. AB-CD-12)"
+      animated="true"
+      (ionInput)="buscarPatente($event)">
+    </ion-searchbar>
+
+    <div class="results-section">
+      
+      <div class="no-results" *ngIf="resultados.length === 0">
+        <ion-icon name="search-outline"></ion-icon>
+        <p>No se encontraron registros</p>
+      </div>
+
+      <ion-card class="history-card" *ngFor="let item of resultados">
+        <div class="card-content">
+          
+          <div class="plate-info">
+            <h3 class="plate-number">{{ item.patente }}</h3>
+            <span class="date">{{ item.fecha }}</span>
+          </div>
+
+          <div class="status-badge" [ngClass]="item.color">
+            <ion-icon [name]="item.icono"></ion-icon>
+            <span>{{ item.estado }}</span>
+          </div>
+
+        </div>
+      </ion-card>
+
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer class="custom-footer">
+  <div class="nav-bar">
+    <div class="nav-item" routerLink="/home">
+      <ion-icon name="scan-outline"></ion-icon>
+      <span>Escanear</span>
+    </div>
+    <div class="nav-item active">
+      <ion-icon name="search-circle"></ion-icon>
+      <span>Historial</span>
+    </div>
+  </div>
+</ion-footer>

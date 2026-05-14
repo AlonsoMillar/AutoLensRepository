@@ -1,0 +1,149 @@
+/* Fondo general adaptativo (Claro/Oscuro) */
+.about-bg {
+  --background: #f5f7fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  .about-bg {
+    --background: #111111; /* Mismo fondo oscuro de tu app */
+  }
+}
+
+.about-container {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Cabecera del Logo */
+.brand-header {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+  .logo-circle {
+    background: linear-gradient(135deg, #b31217 0%, #e52d27 100%);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px;
+    box-shadow: 0 8px 20px rgba(229, 45, 39, 0.4);
+
+    ion-icon {
+      font-size: 42px;
+      color: white;
+    }
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: 1.5px;
+    color: var(--ion-text-color);
+  }
+
+  p {
+    color: var(--ion-color-medium);
+    margin-top: 5px;
+    font-size: 14px;
+  }
+}
+
+/* Tarjetas de Información */
+.content-card {
+  background: rgba(128, 128, 128, 0.08); /* Fondo semi-transparente */
+  border: 1px solid rgba(128, 128, 128, 0.15);
+  border-radius: 16px;
+  padding: 22px;
+  backdrop-filter: blur(10px);
+  
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #e52d27; /* Rojo característico de AutoLens */
+    
+    ion-icon {
+      font-size: 26px;
+    }
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ion-text-color);
+    margin: 0;
+    opacity: 0.9;
+  }
+}
+
+/* Lista de características */
+.feature-list {
+  background: transparent;
+  margin-top: 15px;
+  
+  ion-item {
+    --background: transparent;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+    
+    ion-icon {
+      color: #e52d27;
+      margin-right: 15px;
+      font-size: 22px;
+    }
+
+    ion-label {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ion-text-color);
+    }
+  }
+}
+
+/* Sección de Contacto */
+.contact-email {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  background: rgba(229, 45, 39, 0.1);
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(229, 45, 39, 0.3);
+
+  ion-icon {
+    color: #e52d27;
+    font-size: 22px;
+  }
+
+  a {
+    color: var(--ion-text-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Footer versión */
+.version-info {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: var(--ion-color-medium);
+  font-size: 13px;
+  
+  p {
+    margin: 3px 0;
+  }
+}

@@ -1,0 +1,84 @@
+/* Fondo general */
+.profile-bg {
+  --background: #f5f7fa;
+}
+
+@media (prefers-color-scheme: dark) {
+  .profile-bg {
+    --background: #111111;
+  }
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+/* Foto de Perfil */
+.avatar-section {
+  margin-bottom: 20px;
+  
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #e52d27;
+    box-shadow: 0 8px 20px rgba(229, 45, 39, 0.3);
+  }
+
+  .default-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #2b2b2b, #1a1e23);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid #e52d27;
+    box-shadow: 0 8px 20px rgba(229, 45, 39, 0.3);
+
+    ion-icon {
+      font-size: 60px;
+      color: #ffffff;
+    }
+  }
+}
+
+/* Información del usuario */
+.info-section {
+  text-align: center;
+  margin-bottom: 40px;
+
+  .user-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+  }
+
+  .user-email {
+    font-size: 16px;
+    color: #6c7a8c;
+    margin: 0 0 15px 0;
+  }
+
+  .provider-chip {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+}
+
+/* Botón */
+.action-section {
+  width: 100%;
+  max-width: 300px;
+
+  .logout-btn {
+    height: 50px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    --box-shadow: 0 4px 12px rgba(229, 45, 39, 0.4);
+  }
+}

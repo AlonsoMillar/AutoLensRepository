@@ -1,0 +1,219 @@
+/* ==========================================================
+   VARIABLES DE TEMA (Por defecto: MODO CLARO)
+   ========================================================== */
+:host {
+  --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #d5def0 100%);
+  --text-main: #1a1e23;
+  --text-muted: #6c7a8c;
+  
+  --input-bg: rgba(255, 255, 255, 0.7);
+  --input-border: rgba(0, 0, 0, 0.1);
+  --input-focus: rgba(229, 45, 39, 0.3);
+  --input-text: #1a1e23;
+  --input-icon: #6c7a8c;
+
+  --google-btn-border: rgba(0, 0, 0, 0.2);
+  --google-btn-text: #1a1e23;
+  --google-btn-hover: rgba(0, 0, 0, 0.05);
+
+  --divider-line: rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================
+   MODO OSCURO (Estilo Asfalto/Noche)
+   ========================================================== */
+@media (prefers-color-scheme: dark) {
+  :host {
+    --bg-gradient: linear-gradient(135deg, #111111 0%, #1f2235 100%);
+    --text-main: #ffffff;
+    --text-muted: #8fa0b5;
+    
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-focus: rgba(229, 45, 39, 0.5);
+    --input-text: #ffffff;
+    --input-icon: #8fa0b5;
+
+    --google-btn-border: rgba(255, 255, 255, 0.2);
+    --google-btn-text: #ffffff;
+    --google-btn-hover: rgba(255, 255, 255, 0.1);
+
+    --divider-line: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ==========================================================
+   ESTILOS DE LA PÁGINA
+   ========================================================== */
+ion-content.auth-bg {
+  --background: var(--background, var(--bg-gradient));
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 40px 24px;
+  justify-content: center;
+}
+
+/* Cabecera y Logo */
+.header-section {
+  text-align: center;
+  margin-bottom: 40px;
+
+  .logo-wrapper {
+    display: inline-block;
+    background: linear-gradient(to right, #b31217, #e52d27);
+    border-radius: 50%;
+    padding: 18px;
+    box-shadow: 0 8px 20px rgba(229, 45, 39, 0.4);
+    margin-bottom: 15px;
+  }
+
+  .logo-icon {
+    font-size: 50px;
+    color: #ffffff;
+  }
+
+  .app-title {
+    color: var(--text-main);
+    font-weight: 800;
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .app-subtitle {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-top: 5px;
+  }
+}
+
+/* Entradas de texto (Inputs) */
+.custom-input {
+  --background: var(--input-bg);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 1px solid var(--input-border);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+
+  &:focus-within {
+    border-color: #e52d27;
+    box-shadow: 0 0 10px var(--input-focus);
+    transform: translateY(-1px);
+  }
+
+  ion-icon {
+    color: var(--input-icon);
+    margin-right: 10px;
+  }
+
+  ion-input {
+    --color: var(--input-text);
+    --placeholder-color: var(--text-muted);
+  }
+}
+
+/* Efecto del ojito de contraseña */
+.password-eye {
+  color: #e52d27;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+
+  &:active {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+/* ==========================================================
+   BOTONES CON EFECTOS
+   ========================================================== */
+.primary-btn {
+  --background: #e52d27;
+  --background-hover: #ff3b30;
+  --box-shadow: 0 4px 12px rgba(229, 45, 39, 0.4);
+  margin-top: 24px;
+  font-weight: bold;
+  height: 50px;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    transform: translateY(-3px);
+    --box-shadow: 0 8px 20px rgba(229, 45, 39, 0.6);
+  }
+
+  &:active {
+    transform: translateY(2px) scale(0.98);
+    --box-shadow: 0 2px 5px rgba(229, 45, 39, 0.4);
+  }
+}
+
+.google-btn {
+  --border-color: var(--google-btn-border);
+  --color: var(--google-btn-text);
+  height: 50px;
+  margin-bottom: 30px;
+  --background-hover: var(--google-btn-hover);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ==========================================================
+   SEPARADOR Y FOOTER
+   ========================================================== */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--text-muted);
+  margin: 35px 0;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--divider-line);
+  }
+
+  span {
+    padding: 0 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.footer-section {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 15px;
+
+  a {
+    color: #e52d27;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #ff4a44;
+      text-shadow: 0 0 8px rgba(229, 45, 39, 0.4);
+    }
+  }
+}

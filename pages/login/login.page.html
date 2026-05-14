@@ -1,0 +1,43 @@
+<ion-content [fullscreen]="true" class="login-bg">
+  <div class="login-container">
+    
+    <div class="header-section">
+      <div class="logo-wrapper">
+        <ion-icon name="car-sport" class="logo-icon"></ion-icon>
+      </div>
+      <h1 class="app-title">AutoLens</h1>
+      <p class="app-subtitle">Control vehicular inteligente</p>
+    </div>
+
+    <div class="form-section">
+      <ion-item lines="none" class="custom-input">
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+        <ion-input type="email" placeholder="Correo electrónico" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none" class="custom-input">
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-input type="password" placeholder="Contraseña" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="login-btn" shape="round" (click)="loginLocal()">
+        INICIAR
+        <ion-icon name="speedometer-outline" slot="end"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="divider">
+      <span>O ingresa con</span>
+    </div>
+
+   <ion-button expand="block" fill="outline" class="google-btn" shape="round" (click)="loginWithGoogle()">
+      <ion-icon name="logo-google" slot="start"></ion-icon>
+      Google
+    </ion-button>
+
+    <div class="register-section">
+      <p>¿Sin matrícula en el sistema? <a routerLink="/register">Regístrate aquí</a></p>
+    </div>
+
+  </div>
+</ion-content>

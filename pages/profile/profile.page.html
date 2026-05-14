@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mi Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding profile-bg">
+  <div class="profile-container" *ngIf="usuario">
+    
+    <div class="avatar-section">
+      <img *ngIf="usuario.foto" [src]="usuario.foto" class="profile-img" />
+      
+      <div *ngIf="!usuario.foto" class="default-avatar">
+        <ion-icon name="person-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2 class="user-name">{{ usuario.nombre }}</h2>
+      <p class="user-email">{{ usuario.email }}</p>
+      
+      <ion-chip [color]="usuario.provider === 'google' ? 'danger' : 'tertiary'" class="provider-chip">
+        <ion-icon [name]="usuario.provider === 'google' ? 'logo-google' : 'server-outline'"></ion-icon>
+        <ion-label>Cuenta {{ usuario.provider | titlecase }}</ion-label>
+      </ion-chip>
+    </div>
+
+    <div class="action-section">
+      <ion-button expand="block" class="logout-btn" shape="round" color="danger" (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        CERRAR SESIÓN
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

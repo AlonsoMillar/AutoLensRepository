@@ -1,0 +1,81 @@
+<ion-content [fullscreen]="true" class="home-bg">
+  <div class="home-container">
+    
+    <div class="header-section">
+      <ion-buttons slot="start">
+        <ion-menu-button color="primary"></ion-menu-button>
+      </ion-buttons>
+
+      <div class="greeting">
+        <h2>Hola, {{ userData?.nombre?.split(' ')[0] || 'Usuario' }} 👋</h2>
+        <p>Sistemas listos para escanear</p>
+      </div>
+      
+      <ion-avatar class="profile-pic" routerLink="/profile" style="cursor: pointer;">
+        <img *ngIf="userData?.foto" [src]="userData.foto" alt="Perfil" />
+        <ion-icon *ngIf="!userData?.foto" name="person-circle" class="avatar-icon"></ion-icon>
+      </ion-avatar>
+    </div>
+
+    <div class="scanner-section">
+      <div class="scanner-frame" (click)="startScan()">
+        <span class="corner top-left"></span>
+        <span class="corner top-right"></span>
+        <span class="corner bottom-left"></span>
+        <span class="corner bottom-right"></span>
+        <ion-icon name="scan-outline" class="scan-icon pulse-anim"></ion-icon>
+      </div>
+      
+      <ion-button expand="block" class="primary-btn" shape="round" (click)="startScan()">
+        <ion-icon name="camera-outline" slot="start"></ion-icon>
+        INICIAR ESCÁNER
+      </ion-button>
+
+      <ion-button fill="clear" color="medium" (click)="scanFromGallery()">
+        <ion-icon name="image-outline" slot="start"></ion-icon>
+        Elegir de la galería
+      </ion-button>
+
+      <ion-button fill="clear" class="manual-btn" (click)="toggleManualEntry()">
+        {{ showManualEntry ? 'Cancelar' : 'Ingresar manual' }}
+      </ion-button>
+
+      <div class="manual-entry" *ngIf="showManualEntry">
+        <ion-item lines="none" class="custom-input">
+          <ion-icon name="car-outline" slot="start"></ion-icon>
+          <ion-input type="text" placeholder="Ej: ABCD12" [(ngModel)]="manualPlate"></ion-input>
+          <ion-button slot="end" class="search-btn" fill="clear" (click)="submitManualPlate()">
+            <ion-icon name="search-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </div>
+    </div>
+
+    <div class="recent-scan">
+      <p class="section-title">Última lectura</p>
+      <ion-card class="custom-card">
+        <ion-card-content class="card-content">
+          <div class="plate-info">
+            <ion-icon name="checkmark-circle" color="success"></ion-icon>
+            <span class="plate-number">PENDIENTE</span>
+          </div>
+          <span class="time">Listo para usar</span>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer class="custom-footer">
+  <div class="nav-bar">
+    <div class="nav-item active">
+      <ion-icon name="scan-circle"></ion-icon>
+      <span>Escanear</span>
+    </div>
+    <div class="nav-item" routerLink="/search">
+      <ion-icon name="search-outline"></ion-icon>
+      <span>Historial</span>
+    </div>
+  </div>
+</ion-footer>
